@@ -1,0 +1,4 @@
+Added Component: Designator=J?(FP-USB4125-GF-A-0190-MFG)
+Added Pin To Net: NetName=GND Pin=J2-5
+Added Member To Class: ClassName=LiPoBattery Member=Component J? USB4125-GF-A-0190
+Added Room: Name=LiPoBattery
