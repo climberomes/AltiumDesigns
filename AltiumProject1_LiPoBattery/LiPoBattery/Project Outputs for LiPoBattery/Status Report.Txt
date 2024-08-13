@@ -1,0 +1,10 @@
+Output: Report Board Stack
+Type  : Report Board Stack
+From  : Project [LiPoBattery.PrjPcb]
+   Generated File[LiPoBattery.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 10:33:17 AM On 8/13/2024
