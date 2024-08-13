@@ -1,0 +1,35 @@
+Altium Designer Pick and Place Locations
+C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\Project Outputs for LiPoBattery\Pick Place for LiPoBattery(V01).csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       13/08/24
+Time:       15:16
+Revision:   ad727f0cd2bda1e944d6753ba2c98f525a7ab5da
+Variant:    V01
+Units used: mil
+
+"Designator","Comment","Layer","Footprint","Center-X(mil)","Center-Y(mil)","Rotation","Description"
+"J2","Micro-USB B Receptacle","TopLayer","USB-MICRO-B_V","1890.000mil","500.000mil","90","Micro-USB B Receptacle, Right Angle, Bottom Mount, Surface Mount, with Solder Tabs, -30 to 85 degC, 5-Pin USB, RoHS, Tape and Reel"
+"U1","Charge Management Controller","TopLayer","SOT-23-OT5_M","1140.000mil","990.000mil","90","Simple, Miniature Single-Cell, Fully Integrated Li-Ion/Li-Polymer Charge Management Controller, 4.2V, 5-Pin SOT-23, Industrial Temperature, Tape and Reel"
+"SJ1","SJUMPER3POS","TopLayer","SJUMPER3POS-Footprint-1","1050.000mil","2160.000mil","0","Solder jumper 3 pads and pins"
+"R4","10k","TopLayer","FP-CR0805-IPC_B","1160.000mil","1900.000mil","90","Thick Film Chip Resistors 0805 10kO 0.125W 5% 200ppm/°C"
+"R3","2k","TopLayer","FP-CRCW0805-e3-IPC_B","960.000mil","1910.000mil","90","RES Thick Film, 2kO, 1%, 0.125W, 100ppm/°C, 0805"
+"R2","PROG","TopLayer","FP-MRS25-MFG","430.000mil","1180.000mil","0","MRS25000C1000FRP00 Resistor, 100 Ohm, ± 1%, 600 mW, Axial Leaded, Metal Film (Thin Film), Professional"
+"R1","330","TopLayer","RESC2013X60X40LL20T25","1180.000mil","1180.000mil","270","Thin Film Chip Resistors, High Reliability / Type 6A 0805 / 0,1% / 330 Ohm / 0,1"
+"MHNP4","Mounting Hole Non-Plated 3.2mm","TopLayer","MTHNP3P2MM","1900.067mil","2199.537mil","90","Mounting Hole Non-Plated 3.2mm drill hole"
+"MHNP3","Mounting Hole Non-Plated 3.2mm","TopLayer","MTHNP3P2MM","90.067mil","2209.537mil","90","Mounting Hole Non-Plated 3.2mm drill hole"
+"MHNP2","Mounting Hole Non-Plated 3.2mm","TopLayer","MTHNP3P2MM","1900.067mil","99.537mil","90","Mounting Hole Non-Plated 3.2mm drill hole"
+"MHNP1","Mounting Hole Non-Plated 3.2mm","TopLayer","MTHNP3P2MM","100.067mil","99.537mil","90","Mounting Hole Non-Plated 3.2mm drill hole"
+"LED2","RED","TopLayer","VISH-TLMS1000_V","1340.000mil","2120.000mil","180","Low Current LED, 40 mW, 1.8 V, -40 to 100 degC, 2-Pin SMD (0603), RoHS, Tape and Reel"
+"LED1","RED","TopLayer","VISH-TLMS1000_V","1340.000mil","2060.000mil","180","Low Current LED, 40 mW, 1.8 V, -40 to 100 degC, 2-Pin SMD (0603), RoHS, Tape and Reel"
+"J6","CONN PWR JACK 2.1X5.5MM SOLDER","TopLayer","FP-RASM722PTR13X-MFG","1623.386mil","1618.465mil","90","CONN PWR JACK 2.1X5.5MM SOLDER"
+"J5","2 POS VERT HEADER(0.001inch)","TopLayer","2Pins_AMP","970.000mil","430.000mil","180","CONN HEADER VERT 2POS"
+"J4","2 POS VERT HEADER(0.001inch)","TopLayer","2Pins_AMP","970.000mil","1440.000mil","180","CONN HEADER VERT 2POS"
+"J3","CONN HEADER R/A 2POS 5.08MM","TopLayer","1-179276-2","690.000mil","700.000mil","270","Connector Header Through Hole, Right Angle 2 position 0.200" (5.08mm)"
+"J1","CONN HEADER R/A 2POS 5.08MM","TopLayer","1-179276-2","690.000mil","1720.000mil","270","Connector Header Through Hole, Right Angle 2 position 0.200" (5.08mm)"
+"D2","40V, 1A","TopLayer","ONSC-SMA-2-403D-02_V","1555.000mil","670.000mil","0","Schottky Power Rectifier, 2-Pin SMA, Pb-Free, Tape and Reel"
+"D1","40V, 1A","TopLayer","ONSC-SMA-2-403D-02_V","1550.000mil","450.000mil","0","Schottky Power Rectifier, 2-Pin SMA, Pb-Free, Tape and Reel"
+"C2","4.7uF","TopLayer","FP-CC0805-0_85-MFG","1195.000mil","670.000mil","270","CAP CER 4.7UF 6.3V X5R 0805"
+"C1","4.7uF","TopLayer","FP-CC0805-0_85-MFG","1315.000mil","1170.000mil","270","CAP CER 4.7UF 6.3V X5R 0805"

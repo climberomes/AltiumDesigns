@@ -1,0 +1,437 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">8/13/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:29:30 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc" class="file"><acronym title="C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc">C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">31</td></tr>
+</table>
+</td>
+</table><a name="IDUSVLZSKPNBMFJGJKD0YGPUBN4DROO4BO5LVTHIJMQCNETFABZANM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDH3U2DL2GBOEVFCG2M2Y3LU0MVO4XBRHM0SZTSQDEBRE1ICCL0L5P">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDG4343ERBIFGSDKUDBRKBDNEMSLXFATJTIV4JOTN2TSB203C25JKD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4BW05SPTDN2KNBJUUDWAECCXGEL4BY2ZNG5PFNMZQ2Y3SMY1YJJ">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID25AGMX5KQQKGBAPZ1NWL4H5LAHM3WURHQOY4CTK5YLPYGG4EI2HO">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4EIOOW401IEHMQLN1FQCLS5XVEMPITPMAFIRRWMQN1WUJAFBEQVE">Width Constraint (Min=10mil) (Max=60mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOKKHYOM1TOD0ET4GR2GIKED1UPBQDLPGSKGVGTMO2HAZXQQZQUG">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPR5XZFWFTKOFP0P3HCZFO1OTRBWQIVPSVQRGVFLTAWAN0WV53MFG">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPBXQIPKJOURIGFSFWM2DZJ232BIVJAHW0O3Q0PWI1NHLZP2XF1N">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIGGSCE00K5SDN132IOMQWSTNAHWLMDEJAY2JAQSNU1T1JCKIIFG">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">10</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGKECI05WBRLAM50N4LC1XVOXGPKVLCTAEB3OZCHAL2H0CCOVF3WP">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLTHDU4FMFTGCJ4B2B1VPZAVDSO45CQCFFV1RXCC4CJNMWZUEFYRC">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA0XLDEYXVY0RJXLLLZBREFWW3FYKIH3JIARDR5MMGL4DSLTKR4I">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWXFXQ1QRI4EQDUJQTFAAGVLMEJJ4WZXUPL2OXKLKHDGYWXM4LVCD">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">31</td>
+</tr>
+</table><br><a name="IDG4343ERBIFGSDKUDBRKBDNEMSLXFATJTIV4JOTN2TSB203C25JKD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(1877.323mil,1610mil) on Multi-Layer And Polygon Region (77 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad MHNP1-(100.067mil,99.537mil) on Multi-Layer And Polygon Region (77 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad MHNP2-(1900.067mil,99.537mil) on Multi-Layer And Polygon Region (77 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad MHNP3-(90.067mil,2209.537mil) on Multi-Layer And Polygon Region (77 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad MHNP4-(1900.067mil,2199.537mil) on Multi-Layer And Polygon Region (77 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDPR5XZFWFTKOFP0P3HCZFO1OTRBWQIVPSVQRGVFLTAWAN0WV53MFG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1480.32mil|Location2.X=1599.68mil|Location1.Y=2910.32mil|Location2.Y=3029.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1480.32mil|Location2.X=1599.68mil|Location1.Y=2910.32mil|Location2.Y=3029.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad J1-1(540mil,1970mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1480.32mil|Location2.X=1599.68mil|Location1.Y=1890.32mil|Location2.Y=2009.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1480.32mil|Location2.X=1599.68mil|Location1.Y=1890.32mil|Location2.Y=2009.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad J3-1(540mil,950mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.45mil|Location2.X=1163.684mil|Location1.Y=1035.92mil|Location2.Y=1163.154mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.45mil|Location2.X=1163.684mil|Location1.Y=1035.92mil|Location2.Y=1163.154mil|Absolute=True">Hole Size Constraint: (125.984mil &gt; 100mil) Pad MHNP1-(100.067mil,99.537mil) on Multi-Layer Actual Hole Size = 125.984mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2836.45mil|Location2.X=2963.684mil|Location1.Y=1035.92mil|Location2.Y=1163.154mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2836.45mil|Location2.X=2963.684mil|Location1.Y=1035.92mil|Location2.Y=1163.154mil|Absolute=True">Hole Size Constraint: (125.984mil &gt; 100mil) Pad MHNP2-(1900.067mil,99.537mil) on Multi-Layer Actual Hole Size = 125.984mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1026.45mil|Location2.X=1153.684mil|Location1.Y=3145.92mil|Location2.Y=3273.154mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1026.45mil|Location2.X=1153.684mil|Location1.Y=3145.92mil|Location2.Y=3273.154mil|Absolute=True">Hole Size Constraint: (125.984mil &gt; 100mil) Pad MHNP3-(90.067mil,2209.537mil) on Multi-Layer Actual Hole Size = 125.984mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2836.45mil|Location2.X=2963.684mil|Location1.Y=3135.92mil|Location2.Y=3263.154mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2836.45mil|Location2.X=2963.684mil|Location1.Y=3135.92mil|Location2.Y=3263.154mil|Absolute=True">Hole Size Constraint: (125.984mil &gt; 100mil) Pad MHNP4-(1900.067mil,2199.537mil) on Multi-Layer Actual Hole Size = 125.984mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIGGSCE00K5SDN132IOMQWSTNAHWLMDEJAY2JAQSNU1T1JCKIIFG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1455.989mil|Location2.Y=1467.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1455.989mil|Location2.Y=1467.239mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 10mil) Between Pad J2-1(1836.85mil,448.819mil) on Top Layer And Pad J2-2(1836.85mil,474.41mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2831.225mil|Location2.X=2842.475mil|Location1.Y=1429.907mil|Location2.Y=1441.157mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2831.225mil|Location2.X=2842.475mil|Location1.Y=1429.907mil|Location2.Y=1441.157mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.827mil &lt; 10mil) Between Pad J2-1(1836.85mil,448.819mil) on Top Layer And Pad J2-6(1836.85mil,401.575mil) on Multi-Layer [Top Solder] Mask Sliver [2.827mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1481.58mil|Location2.Y=1492.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1481.58mil|Location2.Y=1492.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.842mil &lt; 10mil) Between Pad J2-2(1836.85mil,474.41mil) on Top Layer And Pad J2-3(1836.85mil,500mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1507.17mil|Location2.Y=1518.42mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1507.17mil|Location2.Y=1518.42mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 10mil) Between Pad J2-3(1836.85mil,500mil) on Top Layer And Pad J2-4(1836.85mil,525.591mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1532.761mil|Location2.Y=1544.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2800.651mil|Location2.X=2811.901mil|Location1.Y=1532.761mil|Location2.Y=1544.011mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.842mil &lt; 10mil) Between Pad J2-4(1836.85mil,525.591mil) on Top Layer And Pad J2-5(1836.85mil,551.181mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2831.225mil|Location2.X=2842.475mil|Location1.Y=1558.844mil|Location2.Y=1570.094mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2831.225mil|Location2.X=2842.475mil|Location1.Y=1558.844mil|Location2.Y=1570.094mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.827mil &lt; 10mil) Between Pad J2-5(1836.85mil,551.181mil) on Top Layer And Pad J2-7(1836.85mil,598.425mil) on Multi-Layer [Top Solder] Mask Sliver [2.827mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2026.875mil|Location2.X=2038.125mil|Location1.Y=3125.375mil|Location2.Y=3136.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2026.875mil|Location2.X=2038.125mil|Location1.Y=3125.375mil|Location2.Y=3136.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2mil &lt; 10mil) Between Pad SJ1-1(1015mil,2160mil) on Top Layer And Pad SJ1-2(1050mil,2160mil) on Top Layer [Top Solder] Mask Sliver [2mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2061.875mil|Location2.X=2073.125mil|Location1.Y=3125.375mil|Location2.Y=3136.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2061.875mil|Location2.X=2073.125mil|Location1.Y=3125.375mil|Location2.Y=3136.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2mil &lt; 10mil) Between Pad SJ1-2(1050mil,2160mil) on Top Layer And Pad SJ1-3(1085mil,2160mil) on Top Layer [Top Solder] Mask Sliver [2mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.674mil|Location2.X=2126.924mil|Location1.Y=1907.54mil|Location2.Y=1918.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.674mil|Location2.X=2126.924mil|Location1.Y=1907.54mil|Location2.Y=1918.79mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 10mil) Between Pad U1-1(1102.598mil,942.756mil) on Top Layer And Pad U1-2(1140mil,942.756mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2153.076mil|Location2.X=2164.326mil|Location1.Y=1907.54mil|Location2.Y=1918.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2153.076mil|Location2.X=2164.326mil|Location1.Y=1907.54mil|Location2.Y=1918.79mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.842mil &lt; 10mil) Between Pad U1-2(1140mil,942.756mil) on Top Layer And Pad U1-3(1177.401mil,942.756mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDGKECI05WBRLAM50N4LC1XVOXGPKVLCTAEB3OZCHAL2H0CCOVF3WP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=2614.375mil|Location2.Y=2625.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=2614.375mil|Location2.Y=2625.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.04mil &lt; 10mil) Between Pad J1-(840mil,1620mil) on Multi-Layer And Track (881.535mil,1342.047mil)(881.535mil,2094.016mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.04mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=2814.375mil|Location2.Y=2825.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=2814.375mil|Location2.Y=2825.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.04mil &lt; 10mil) Between Pad J1-(840mil,1820mil) on Multi-Layer And Track (881.535mil,1342.047mil)(881.535mil,2094.016mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.04mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=1594.375mil|Location2.Y=1605.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=1594.375mil|Location2.Y=1605.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.04mil &lt; 10mil) Between Pad J3-(840mil,600mil) on Multi-Layer And Track (881.535mil,322.047mil)(881.535mil,1074.016mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.04mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=1794.375mil|Location2.Y=1805.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1868.89mil|Location2.X=1880.14mil|Location1.Y=1794.375mil|Location2.Y=1805.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.04mil &lt; 10mil) Between Pad J3-(840mil,800mil) on Multi-Layer And Track (881.535mil,322.047mil)(881.535mil,1074.016mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.04mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.434mil|Location2.X=2605.684mil|Location1.Y=2422.21mil|Location2.Y=2433.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.434mil|Location2.X=2605.684mil|Location1.Y=2422.21mil|Location2.Y=2433.46mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.464mil &lt; 10mil) Between Pad J6-2(1729.291mil,1356.85mil) on Top Layer And Track (1419.567mil,1427.835mil)(1591.89mil,1427.835mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.464mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1993.125mil|Location2.X=2004.375mil|Location1.Y=3129.375mil|Location2.Y=3140.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1993.125mil|Location2.X=2004.375mil|Location1.Y=3129.375mil|Location2.Y=3140.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (7.5mil &lt; 10mil) Between Pad SJ1-1(1015mil,2160mil) on Top Layer And Track (990mil,2120mil)(990mil,2170mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [7.5mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1993.125mil|Location2.X=2004.375mil|Location1.Y=3179.375mil|Location2.Y=3190.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1993.125mil|Location2.X=2004.375mil|Location1.Y=3179.375mil|Location2.Y=3190.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (7.5mil &lt; 10mil) Between Pad SJ1-1(1015mil,2160mil) on Top Layer And Track (990mil,2170mil)(990mil,2200mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [7.5mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2095.625mil|Location2.X=2106.875mil|Location1.Y=3129.375mil|Location2.Y=3140.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2095.625mil|Location2.X=2106.875mil|Location1.Y=3129.375mil|Location2.Y=3140.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (7.5mil &lt; 10mil) Between Pad SJ1-3(1085mil,2160mil) on Top Layer And Track (1110mil,2120mil)(1110mil,2200mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [7.5mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDLTHDU4FMFTGCJ4B2B1VPZAVDSO45CQCFFV1RXCC4CJNMWZUEFYRC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2024.214mil|Location2.X=2035.464mil|Location1.Y=2407.704mil|Location2.Y=2418.954mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2024.214mil|Location2.X=2035.464mil|Location1.Y=2407.704mil|Location2.Y=2418.954mil|Absolute=True">Silk To Silk Clearance Constraint: (3.677mil &lt; 10mil) Between Text "+ -" (1080mil,1390mil) on Top Overlay And Track (1025mil,1340mil)(1025mil,1540mil) on Top Overlay Silk Text to Silk Clearance [3.677mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2024.214mil|Location2.X=2035.464mil|Location1.Y=1387.704mil|Location2.Y=1398.954mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\1 - Omar Alhayek\Personal\AltiumDesigns\AltiumProject1_LiPoBattery\LiPoBattery\LiPoBattery.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2024.214mil|Location2.X=2035.464mil|Location1.Y=1387.704mil|Location2.Y=1398.954mil|Absolute=True">Silk To Silk Clearance Constraint: (3.677mil &lt; 10mil) Between Text "+ -" (1080mil,370mil) on Top Overlay And Track (1025mil,330mil)(1025mil,530mil) on Top Overlay Silk Text to Silk Clearance [3.677mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

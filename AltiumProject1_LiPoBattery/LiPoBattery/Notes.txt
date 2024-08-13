@@ -1,0 +1,38 @@
+--------------------------------------------------
+File>Fabrication Outputs
+
+3 Important Export 1) Information to create material. PCB without components 2) Information for how to place components on PCB PnP files drawings 3) Verify logical connections IPC2581 ODB++ IPCD356A Testing file.... Drill Drawings are important. Gerber files vs Gerber X2 Gerber is just text files to place things. 
+
+for layer files (drill) indicate layers too.
+
+
+IPC2581 more intelligent format for our fabrication data
+
+ODB++ intelligent version of Gerber's
+
+.cam files name them what they are (Drill ODB++) and give rev name for ODB++
+
+
+--------------------------------------------------
+File>Assembly Outputs
+
+Build PCB the way it was intended
+
+Pick and place is auto pick and place. Show units (Check box at output settings
+\
+Create Smart PDF of project
+
+do not open output job file after export (last page)
+
+you can create a ODF3D and open 3D pdf view.
+
+Save draftman copy
+
+draftsman use drill data
+-----------------------------------------------------------
+
+Draftsman Document
+Panel Properties
+
+You can also export it to the mechanical engineer
+
